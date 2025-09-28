@@ -1,0 +1,201 @@
+/* ========================================
+   HERÓIS VS VILÕES - ESTILOS PERSONALIZADOS
+   ======================================== */
+
+/* Reset e configurações básicas */
+body {
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    /* Evita barras de rolagem */
+}
+
+h1 {
+    font-family: 'Bebas Neue', cursive;
+}
+
+/* ========================================
+   EFEITOS DE TEXTO E ANIMAÇÕES
+   ======================================== */
+
+/* Efeito de brilho sutil no texto */
+.text-glow {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Animação para a entrada do conteúdo */
+.content-fade-in {
+    animation: fadeIn 1.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   BACKGROUNDS E IMAGENS
+   ======================================== */
+
+/* Estilos para as sobreposições com gradiente */
+.hero-side::before,
+.villain-side::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    z-index: 1;
+}
+
+/* Imagens de fundo */
+.hero-side {
+    background-image: url('Imagens/imagem-do-herois.png');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.villain-side {
+    background-image: url('Imagens/imagem-viloes.png');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Efeitos hover nas imagens */
+.hero-side:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease-in-out;
+    background-position: top center;
+}
+
+.villain-side:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease-in-out;
+    background-position: top center;
+}
+
+/* ========================================
+   CARDS DE PERSONAGENS
+   ======================================== */
+
+.character-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Bordas coloridas dos cards */
+.character-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+}
+
+.hero-card::before {
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+}
+
+.villain-card::before {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+/* ========================================
+   BADGES DE NÍVEL
+   ======================================== */
+
+.level-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Cores específicas para cada nível */
+.level-ferro {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    color: white;
+}
+
+.level-bronze {
+    background: linear-gradient(135deg, #cd7f32, #b8860b);
+    color: white;
+}
+
+.level-prata {
+    background: linear-gradient(135deg, #c0c0c0, #a8a8a8);
+    color: #333;
+}
+
+.level-ouro {
+    background: linear-gradient(135deg, #ffd700, #ffb347);
+    color: #333;
+}
+
+.level-platina {
+    background: linear-gradient(135deg, #e5e4e2, #d3d3d3);
+    color: #333;
+}
+
+.level-ascendente {
+    background: linear-gradient(135deg, #9f7aea, #805ad5);
+    color: white;
+}
+
+.level-imortal {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+}
+
+.level-radiante {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: white;
+}
+
+/* ========================================
+   MODAL E ANIMAÇÕES
+   ======================================== */
+
+.modal-enter {
+    animation: modalEnter 0.3s ease-out;
+}
+
+@keyframes modalEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
