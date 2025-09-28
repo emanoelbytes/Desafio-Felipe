@@ -63,6 +63,7 @@ h1 {
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: scroll;
 }
 
 .villain-side {
@@ -70,6 +71,61 @@ h1 {
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+/* Responsividade para imagens - Mobile pequeno */
+@media (max-width: 480px) {
+
+    .hero-side,
+    .villain-side {
+        background-size: cover;
+        background-position: center center;
+        min-height: 45vh;
+        background-attachment: scroll;
+    }
+}
+
+/* Responsividade para imagens - Mobile */
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .hero-side,
+    .villain-side {
+        background-size: cover;
+        background-position: center center;
+        min-height: 50vh;
+        background-attachment: scroll;
+    }
+}
+
+/* Responsividade para imagens - Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .hero-side,
+    .villain-side {
+        background-size: cover;
+        background-position: top center;
+    }
+}
+
+/* Responsividade para imagens - Desktop pequeno */
+@media (min-width: 1025px) and (max-width: 1440px) {
+
+    .hero-side,
+    .villain-side {
+        background-size: cover;
+        background-position: top center;
+    }
+}
+
+/* Responsividade para imagens - Desktop grande */
+@media (min-width: 1441px) {
+
+    .hero-side,
+    .villain-side {
+        background-size: cover;
+        background-position: top center;
+    }
 }
 
 /* Efeitos hover nas imagens */
@@ -83,6 +139,39 @@ h1 {
     transform: scale(1.05);
     transition: transform 0.5s ease-in-out;
     background-position: top center;
+}
+
+/* Responsividade dos hovers - Mobile pequeno */
+@media (max-width: 480px) {
+
+    .hero-side:hover,
+    .villain-side:hover {
+        transform: scale(1.01);
+        /* Escala mínima no mobile pequeno */
+        background-position: center center;
+    }
+}
+
+/* Responsividade dos hovers - Mobile */
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .hero-side:hover,
+    .villain-side:hover {
+        transform: scale(1.02);
+        /* Escala menor no mobile */
+        background-position: center center;
+    }
+}
+
+/* Responsividade dos hovers - Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .hero-side:hover,
+    .villain-side:hover {
+        transform: scale(1.03);
+        /* Escala média no tablet */
+        background-position: top center;
+    }
 }
 
 /* ========================================
