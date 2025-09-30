@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heróis vs Vilões</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Bebas Neue para o título -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,45 +15,40 @@
 </head>
 
 <body>
-    <main class="relative w-screen h-screen flex flex-col md:flex-row">
+    <main>
         <!-- Lado dos Heróis -->
-        <div
-            class="hero-side relative w-full md:w-1/2 h-1/2 md:h-full bg-cover bg-center bg-no-repeat transition-all duration-500 ease-in-out transform hover:scale-105">
+        <div class="hero-side">
             <!-- A imagem de fundo é definida no CSS -->
         </div>
 
         <!-- Lado dos Vilões -->
-        <div
-            class="villain-side relative w-full md:w-1/2 h-1/2 md:h-full bg-cover bg-center bg-no-repeat transition-all duration-500 ease-in-out transform hover:scale-105">
+        <div class="villain-side">
             <!-- A imagem de fundo é definida no CSS -->
         </div>
 
         <!-- Conteúdo Central -->
         <div class="absolute inset-0 flex items-center justify-center z-10 p-4">
             <div class="text-center text-white content-fade-in">
-                <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-glow tracking-wider">
+                <h1 class="text-glow tracking-wider">
                     Heróis & Vilões
                 </h1>
-                <p class="mt-2 md:mt-4 text-lg md:text-2xl font-light text-gray-300">
+                <p class="mt-2 text-lg font-light text-gray-300">
                     Heróis contra Vilões
                 </p>
-                <button id="showCharacters"
-                    class="mt-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full text-xl shadow-2xl transform hover:scale-105 transition-all duration-300 ease-in-out">
+                <button id="showCharacters">
                     Ver Personagens
                 </button>
             </div>
         </div>
 
         <!-- Modal -->
-        <div id="characterModal"
-            class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+        <div id="characterModal">
             <div class="bg-gray-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
                 <!-- Header do Modal -->
-                <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-t-2xl">
+                <div class="bg-gradient-to-r p-6 rounded-t-2xl">
                     <div class="flex justify-between items-center">
                         <h2 class="text-3xl font-bold text-white">Heróis & Vilões</h2>
-                        <button id="closeModal"
-                            class="text-white hover:text-gray-300 text-3xl font-bold">&times;</button>
+                        <button id="closeModal">&times;</button>
                     </div>
                 </div>
 
@@ -66,7 +59,7 @@
                         <h3 class="text-2xl font-bold text-blue-400 mb-4 flex items-center">
                             <span class="mr-2">🦸‍♂️</span> Heróis
                         </h3>
-                        <div id="heroesList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div id="heroesList" class="grid grid-cols-1 gap-4">
                             <!-- Heróis serão inseridos aqui via JavaScript -->
                         </div>
                     </div>
@@ -76,7 +69,7 @@
                         <h3 class="text-2xl font-bold text-red-400 mb-4 flex items-center">
                             <span class="mr-2">🦹‍♂️</span> Vilões
                         </h3>
-                        <div id="villainsList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div id="villainsList" class="grid grid-cols-1 gap-4">
                             <!-- Vilões serão inseridos aqui via JavaScript -->
                         </div>
                     </div>

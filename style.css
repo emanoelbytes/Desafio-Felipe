@@ -1,50 +1,66 @@
 /* ========================================
-   HERÓIS VS VILÕES - ESTILOS PERSONALIZADOS
+   HERÓIS VS VILÕES - ESTILOS COMPLETOS
    ======================================== */
 
-/* Reset e configurações básicas */
+/* ========================================
+   RESET E CONFIGURAÇÕES BÁSICAS
+   ======================================== */
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     overflow: hidden;
-    /* Evita barras de rolagem */
 }
 
 h1 {
     font-family: 'Bebas Neue', cursive;
+    font-size: 6rem;
+    letter-spacing: 0.1em;
 }
 
 /* ========================================
-   EFEITOS DE TEXTO E ANIMAÇÕES
+   LAYOUT PRINCIPAL
    ======================================== */
 
-/* Efeito de brilho sutil no texto */
-.text-glow {
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 0 0 12px rgba(255, 255, 255, 0.2);
-}
-
-/* Animação para a entrada do conteúdo */
-.content-fade-in {
-    animation: fadeIn 1.5s ease-in-out forwards;
-    opacity: 0;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ========================================
    BACKGROUNDS E IMAGENS
    ======================================== */
 
-/* Estilos para as sobreposições com gradiente */
+.hero-side,
+.villain-side {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    transition: all 0.5s ease-in-out;
+    transform: scale(1);
+}
+
+.hero-side {
+    background-image: url('Imagens/imagem-do-herois.png');
+}
+
+.villain-side {
+    background-image: url('Imagens/imagem-viloes.png');
+}
+
+/* Sobreposições com gradiente */
 .hero-side::before,
 .villain-side::before {
     content: '';
@@ -57,121 +73,272 @@ h1 {
     z-index: 1;
 }
 
-/* Imagens de fundo */
-.hero-side {
-    background-image: url('Imagens/imagem-do-herois.png');
-    background-position: top center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-}
-
-.villain-side {
-    background-image: url('Imagens/imagem-viloes.png');
-    background-position: top center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-}
-
-/* Responsividade para imagens - Mobile pequeno */
-@media (max-width: 480px) {
-
-    .hero-side,
-    .villain-side {
-        background-size: cover;
-        background-position: center center;
-        min-height: 45vh;
-        background-attachment: scroll;
-    }
-}
-
-/* Responsividade para imagens - Mobile */
-@media (min-width: 481px) and (max-width: 768px) {
-
-    .hero-side,
-    .villain-side {
-        background-size: cover;
-        background-position: center center;
-        min-height: 50vh;
-        background-attachment: scroll;
-    }
-}
-
-/* Responsividade para imagens - Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
-
-    .hero-side,
-    .villain-side {
-        background-size: cover;
-        background-position: top center;
-    }
-}
-
-/* Responsividade para imagens - Desktop pequeno */
-@media (min-width: 1025px) and (max-width: 1440px) {
-
-    .hero-side,
-    .villain-side {
-        background-size: cover;
-        background-position: top center;
-    }
-}
-
-/* Responsividade para imagens - Desktop grande */
-@media (min-width: 1441px) {
-
-    .hero-side,
-    .villain-side {
-        background-size: cover;
-        background-position: top center;
-    }
-}
-
-/* Efeitos hover nas imagens */
-.hero-side:hover {
-    transform: scale(1.05);
-    transition: transform 0.5s ease-in-out;
-    background-position: top center;
-}
-
+/* Efeitos hover */
+.hero-side:hover,
 .villain-side:hover {
     transform: scale(1.05);
-    transition: transform 0.5s ease-in-out;
     background-position: top center;
 }
 
-/* Responsividade dos hovers - Mobile pequeno */
-@media (max-width: 480px) {
+/* ========================================
+   CONTEÚDO CENTRAL
+   ======================================== */
 
-    .hero-side:hover,
-    .villain-side:hover {
-        transform: scale(1.01);
-        /* Escala mínima no mobile pequeno */
-        background-position: center center;
+.absolute {
+    position: absolute;
+}
+
+.inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.z-10 {
+    z-index: 10;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.p-6 {
+    padding: 1.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-gray-300 {
+    color: #d1d5db;
+}
+
+.text-blue-400 {
+    color: #60a5fa;
+}
+
+.text-red-400 {
+    color: #f87171;
+}
+
+/* ========================================
+   EFEITOS DE TEXTO E ANIMAÇÕES
+   ======================================== */
+
+.text-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                 0 0 40px rgba(255, 255, 255, 0.6),
+                 0 0 60px rgba(255, 255, 255, 0.4);
+}
+
+.tracking-wider {
+    letter-spacing: 0.1em;
+}
+
+.content-fade-in {
+    animation: fadeIn 1.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Responsividade dos hovers - Mobile */
-@media (min-width: 481px) and (max-width: 768px) {
+/* ========================================
+   TIPOGRAFIA
+   ======================================== */
 
-    .hero-side:hover,
-    .villain-side:hover {
-        transform: scale(1.02);
-        /* Escala menor no mobile */
-        background-position: center center;
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.mb-8 {
+    margin-bottom: 2rem;
+}
+
+.mr-2 {
+    margin-right: 0.5rem;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+}
+
+.text-3xl {
+    font-size: 1.875rem;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+/* ========================================
+   BOTÃO PRINCIPAL
+   ======================================== */
+
+#showCharacters {
+    margin-top: 2rem;
+    background: linear-gradient(to right, #2563eb, #9333ea);
+    color: white;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-size: 1.25rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+}
+
+#showCharacters:hover {
+    background: linear-gradient(to right, #1d4ed8, #7e22ce);
+    transform: scale(1.05);
+}
+
+/* ========================================
+   MODAL
+   ======================================== */
+
+#characterModal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 50;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+#characterModal.flex {
+    display: flex;
+}
+
+.modal-enter {
+    animation: modalEnter 0.3s ease-out;
+}
+
+@keyframes modalEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
     }
 }
 
-/* Responsividade dos hovers - Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
+.bg-gray-900 {
+    background-color: #111827;
+}
 
-    .hero-side:hover,
-    .villain-side:hover {
-        transform: scale(1.03);
-        /* Escala média no tablet */
-        background-position: top center;
-    }
+.rounded-2xl {
+    border-radius: 1rem;
+}
+
+.rounded-t-2xl {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.max-w-4xl {
+    max-width: 56rem;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.max-h-\[90vh\] {
+    max-height: 90vh;
+}
+
+.overflow-y-auto {
+    overflow-y: auto;
+}
+
+.shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.bg-gradient-to-r {
+    background: linear-gradient(to right, #2563eb, #9333ea);
+}
+
+#closeModal {
+    color: white;
+    font-size: 1.875rem;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#closeModal:hover {
+    color: #d1d5db;
+}
+
+/* ========================================
+   GRID SYSTEM
+   ======================================== */
+
+.grid {
+    display: grid;
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.gap-4 {
+    gap: 1rem;
 }
 
 /* ========================================
@@ -228,7 +395,6 @@ h1 {
     letter-spacing: 0.05em;
 }
 
-/* Cores específicas para cada nível */
 .level-ferro {
     background: linear-gradient(135deg, #6b7280, #4b5563);
     color: white;
@@ -270,21 +436,136 @@ h1 {
 }
 
 /* ========================================
-   MODAL E ANIMAÇÕES
+   RESPONSIVIDADE
    ======================================== */
 
-.modal-enter {
-    animation: modalEnter 0.3s ease-out;
-}
-
-@keyframes modalEnter {
-    from {
-        opacity: 0;
-        transform: scale(0.9) translateY(-20px);
+/* Mobile pequeno - até 480px */
+@media (max-width: 480px) {
+    .hero-side,
+    .villain-side {
+        background-size: cover;
+        background-position: center center;
+        min-height: 45vh;
     }
 
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
+    .hero-side:hover,
+    .villain-side:hover {
+        transform: scale(1.01);
+        background-position: center center;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+/* Mobile - 481px a 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+    .hero-side,
+    .villain-side {
+        background-size: cover;
+        background-position: center center;
+        min-height: 50vh;
+    }
+
+    .hero-side:hover,
+    .villain-side:hover {
+        transform: scale(1.02);
+        background-position: center center;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+/* Tablet - 769px a 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    main {
+        flex-direction: row;
+    }
+
+    .hero-side,
+    .villain-side {
+        width: 50%;
+        height: 100%;
+        background-size: cover;
+        background-position: top center;
+    }
+
+    .hero-side:hover,
+    .villain-side:hover {
+        transform: scale(1.03);
+        background-position: top center;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    .grid-cols-1 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Desktop pequeno - 1025px a 1440px */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    main {
+        flex-direction: row;
+    }
+
+    .hero-side,
+    .villain-side {
+        width: 50%;
+        height: 100%;
+        background-size: cover;
+        background-position: top center;
+    }
+
+    h1 {
+        font-size: 7rem;
+    }
+
+    .mt-2 {
+        margin-top: 1rem;
+    }
+
+    .text-lg {
+        font-size: 1.5rem;
+    }
+
+    .grid-cols-1 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Desktop grande - acima de 1441px */
+@media (min-width: 1441px) {
+    main {
+        flex-direction: row;
+    }
+
+    .hero-side,
+    .villain-side {
+        width: 50%;
+        height: 100%;
+        background-size: cover;
+        background-position: top center;
+    }
+
+    h1 {
+        font-size: 9rem;
+    }
+
+    .mt-2 {
+        margin-top: 1rem;
+    }
+
+    .text-lg {
+        font-size: 1.5rem;
+    }
+
+    .grid-cols-1 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
